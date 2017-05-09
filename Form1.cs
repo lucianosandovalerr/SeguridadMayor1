@@ -36,12 +36,6 @@ namespace SegMayor
             frm.Show();
         }
 
-        private void bt_buscar_Click(object sender, EventArgs e)
-        {
-            bt_asis.Visible = true;
-            bt_he.Visible = true;
-            bt_pagos.Visible = true;
-
-        }
+        
     }
 }
