@@ -12,9 +12,32 @@ namespace SegMayor
 {
     public partial class menuPagos : Form
     {
-        public menuPagos()
+        String rol;
+        public menuPagos(String parametro)
         {
+            if (parametro != null)
+            {
+                rol = parametro;
+                tb_rol.Text = rol;
+                lb_nombreHE.Text = "Luciano Sandoval";
+                lb_rutHE.Text = "18807705-6";
+                lb_zonaHE.Text = "Concepcion";
+            }
             InitializeComponent();
+           
+        }
+
+        private void bt_buscar_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            nroTotalHoras.Visible = true;
+            totHorasExtras.Visible = true;
+            label4.Visible = true;
+            label9.Visible = true;
         }
     }
 }

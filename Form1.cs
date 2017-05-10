@@ -32,7 +32,7 @@ namespace SegMayor
 
         private void bt_pagos_Click(object sender, EventArgs e)
         {
-            menuPagos frm = new menuPagos();
+            menuPagos frm = new menuPagos(null);
             frm.Show();
         }
 
