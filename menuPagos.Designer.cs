@@ -37,7 +37,7 @@
             this.lb_texto = new System.Windows.Forms.Label();
             this.bt_limpiar = new System.Windows.Forms.Button();
             this.bt_buscar = new System.Windows.Forms.Button();
-            this.tb_rol = new System.Windows.Forms.TextBox();
+            this.tb_rolPagos = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -149,14 +149,14 @@
             this.bt_buscar.UseVisualStyleBackColor = true;
             this.bt_buscar.Click += new System.EventHandler(this.bt_buscar_Click);
             // 
-            // tb_rol
+            // tb_rolPagos
             // 
-            this.tb_rol.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tb_rol.Location = new System.Drawing.Point(16, 36);
-            this.tb_rol.Margin = new System.Windows.Forms.Padding(2);
-            this.tb_rol.Name = "tb_rol";
-            this.tb_rol.Size = new System.Drawing.Size(110, 20);
-            this.tb_rol.TabIndex = 39;
+            this.tb_rolPagos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tb_rolPagos.Location = new System.Drawing.Point(16, 36);
+            this.tb_rolPagos.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_rolPagos.Name = "tb_rolPagos";
+            this.tb_rolPagos.Size = new System.Drawing.Size(110, 20);
+            this.tb_rolPagos.TabIndex = 39;
             // 
             // groupBox2
             // 
@@ -343,7 +343,7 @@
             this.Controls.Add(this.lb_texto);
             this.Controls.Add(this.bt_limpiar);
             this.Controls.Add(this.bt_buscar);
-            this.Controls.Add(this.tb_rol);
+            this.Controls.Add(this.tb_rolPagos);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MinimumSize = new System.Drawing.Size(604, 495);
             this.Name = "menuPagos";
@@ -368,7 +368,7 @@
         private System.Windows.Forms.Label lb_texto;
         private System.Windows.Forms.Button bt_limpiar;
         private System.Windows.Forms.Button bt_buscar;
-        private System.Windows.Forms.TextBox tb_rol;
+        private System.Windows.Forms.TextBox tb_rolPagos;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;

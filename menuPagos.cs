@@ -15,15 +15,16 @@ namespace SegMayor
         String rol;
         public menuPagos(String parametro)
         {
+            InitializeComponent();
             if (parametro != null)
             {
                 rol = parametro;
-                tb_rol.Text = rol;
+                tb_rolPagos.Text = parametro;
                 lb_nombreHE.Text = "Luciano Sandoval";
                 lb_rutHE.Text = "18807705-6";
                 lb_zonaHE.Text = "Concepcion";
             }
-            InitializeComponent();
+            
            
         }
 
