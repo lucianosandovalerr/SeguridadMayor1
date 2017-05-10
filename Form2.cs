@@ -59,30 +59,44 @@ namespace SegMayor
             SqlDataReader reader;
             con.Open();
 
-            try
             {
-                reader = cmd.ExecuteReader();
-                if (reader.Read())
+
+                if (string.IsNullOrEmpty(tb_rol.Text))
                 {
-                    //lb_nombre.Text = "hola".ToString();
-                    lb_nombre.Text = (reader[2].ToString() + "-" + reader[3].ToString());
-                    lb_nombre.Visible = true;
+
+                    MessageBox.Show("Debe completar la informacion");
+
+                    return;
+
                 }
-                else
+
+                try
                 {
-                    MessageBox.Show("Error en el rol ingresado !");
-                    tb_rol.Text = "";
-                    lb_nombre.Text = "";
+                    reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        //lb_nombre.Text = "hola".ToString();
+                        lb_nombre.Text = (reader[2].ToString() + " " + reader[3].ToString());
+                        lb_nombre.Visible = true;
+                        lb_zona.Text = reader[4].ToString();
+                        lb_zona.Visible = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error en el rol ingresado !");
+                        tb_rol.Text = "";
+                        lb_nombre.Text = "";
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.ToString());
-            }
-            finally
-            {
-                // Cierro la Conexión.
-                con.Close();
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.ToString());
+                }
+                finally
+                {
+                    // Cierro la Conexión.
+                    con.Close();
+                }
             }
         }
 
@@ -135,6 +149,13 @@ namespace SegMayor
 
     */
 
+        }
+
+        private void bt_limpiar_Click(object sender, EventArgs e)
+        {
+            lb_nombre.Visible = false;
+            lb_zona.Visible = false;
+            tb_rol.Text = "";
         }
     }
 }
