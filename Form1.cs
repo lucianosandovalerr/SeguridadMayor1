@@ -36,6 +36,10 @@ namespace SegMayor
             frm.Show();
         }
 
-        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            PruebaIngreso formpruebas = new PruebaIngreso();
+            formpruebas.Show();
+        }
     }
 }
