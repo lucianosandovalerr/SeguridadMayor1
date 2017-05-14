@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.AgregarFeriado = new System.Windows.Forms.Button();
             this.listaFeriados = new System.Windows.Forms.ListView();
+            this.bt_guardarFeriados = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // pickerFeriado
@@ -69,11 +70,22 @@
             this.listaFeriados.UseCompatibleStateImageBehavior = false;
             this.listaFeriados.View = System.Windows.Forms.View.List;
             // 
+            // bt_guardarFeriados
+            // 
+            this.bt_guardarFeriados.Location = new System.Drawing.Point(114, 230);
+            this.bt_guardarFeriados.Name = "bt_guardarFeriados";
+            this.bt_guardarFeriados.Size = new System.Drawing.Size(75, 23);
+            this.bt_guardarFeriados.TabIndex = 4;
+            this.bt_guardarFeriados.Text = "Guardar";
+            this.bt_guardarFeriados.UseVisualStyleBackColor = true;
+            this.bt_guardarFeriados.Click += new System.EventHandler(this.bt_guardarFeriados_Click);
+            // 
             // formFeriados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(308, 261);
+            this.Controls.Add(this.bt_guardarFeriados);
             this.Controls.Add(this.listaFeriados);
             this.Controls.Add(this.AgregarFeriado);
             this.Controls.Add(this.label1);
@@ -91,5 +103,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button AgregarFeriado;
         private System.Windows.Forms.ListView listaFeriados;
+        private System.Windows.Forms.Button bt_guardarFeriados;
     }
 }
