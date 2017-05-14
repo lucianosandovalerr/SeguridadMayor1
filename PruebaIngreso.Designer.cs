@@ -37,9 +37,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.mskTiempo = new System.Windows.Forms.MaskedTextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dt_fechaTurno = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lb_tipoDia = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -142,12 +142,13 @@
             this.mskTiempo.TabIndex = 4;
             this.mskTiempo.ValidatingType = typeof(System.DateTime);
             // 
-            // dateTimePicker1
+            // dt_fechaTurno
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(121, 43);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 7;
+            this.dt_fechaTurno.Location = new System.Drawing.Point(121, 43);
+            this.dt_fechaTurno.Name = "dt_fechaTurno";
+            this.dt_fechaTurno.Size = new System.Drawing.Size(200, 20);
+            this.dt_fechaTurno.TabIndex = 7;
+            this.dt_fechaTurno.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label5
             // 
@@ -158,15 +159,15 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Fecha Turno";
             // 
-            // label6
+            // lb_tipoDia
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(391, 49);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 13);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Tipo de Día";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lb_tipoDia.AutoSize = true;
+            this.lb_tipoDia.Location = new System.Drawing.Point(391, 49);
+            this.lb_tipoDia.Name = "lb_tipoDia";
+            this.lb_tipoDia.Size = new System.Drawing.Size(64, 13);
+            this.lb_tipoDia.TabIndex = 9;
+            this.lb_tipoDia.Text = "Tipo de Día";
+            this.lb_tipoDia.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label7
             // 
@@ -308,9 +309,9 @@
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lb_tipoDia);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dt_fechaTurno);
             this.Name = "PruebaIngreso";
             this.Text = "PruebaIngreso";
             this.panel1.ResumeLayout(false);
@@ -331,9 +332,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.MaskedTextBox mskTiempo;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dt_fechaTurno;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lb_tipoDia;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;

@@ -12,6 +12,8 @@ namespace SegMayor
 {
     public partial class PruebaIngreso : Form
     {
+
+        Class1 excepcion = new Class1();
         public PruebaIngreso()
         {
             InitializeComponent();
@@ -117,6 +119,19 @@ namespace SegMayor
                     }
                     break;
 
+            }
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            if (excepcion.analizarFeriado(dt_fechaTurno.Value))
+            {
+                MessageBox.Show("Es Feriado");
+                lb_tipoDia.Text = ("Tipo de Día: Feriado");
+            }
+            else
+            {
+                lb_tipoDia.Text = ("Tipo de Día: Normal");
             }
         }
     }
