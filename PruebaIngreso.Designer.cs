@@ -31,7 +31,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbCodTurno = new System.Windows.Forms.Label();
             this.mskEntrada = new System.Windows.Forms.MaskedTextBox();
             this.mskSalida = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,18 +39,17 @@
             this.mskTiempo = new System.Windows.Forms.MaskedTextBox();
             this.dt_fechaTurno = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.lb_tipoDia = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lbHorasExtras = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.cbJustificacion = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.mskTurno = new System.Windows.Forms.MaskedTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lbCantRestricciones = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.codTurno = new System.Windows.Forms.Label();
+            this.cb_horasTurno = new System.Windows.Forms.ComboBox();
+            this.lb_detallesRestricciones = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,7 +65,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 0;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -88,18 +86,18 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // label2
+            // lbCodTurno
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(230, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "COD TURNO";
+            this.lbCodTurno.AutoSize = true;
+            this.lbCodTurno.Location = new System.Drawing.Point(429, 345);
+            this.lbCodTurno.Name = "lbCodTurno";
+            this.lbCodTurno.Size = new System.Drawing.Size(88, 13);
+            this.lbCodTurno.TabIndex = 3;
+            this.lbCodTurno.Text = "Código del Turno";
             // 
             // mskEntrada
             // 
-            this.mskEntrada.Location = new System.Drawing.Point(130, 118);
+            this.mskEntrada.Location = new System.Drawing.Point(127, 94);
             this.mskEntrada.Mask = "00:00";
             this.mskEntrada.Name = "mskEntrada";
             this.mskEntrada.Size = new System.Drawing.Size(34, 20);
@@ -108,7 +106,7 @@
             // 
             // mskSalida
             // 
-            this.mskSalida.Location = new System.Drawing.Point(170, 118);
+            this.mskSalida.Location = new System.Drawing.Point(167, 94);
             this.mskSalida.Mask = "00:00";
             this.mskSalida.Name = "mskSalida";
             this.mskSalida.Size = new System.Drawing.Size(34, 20);
@@ -118,7 +116,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 121);
+            this.label3.Location = new System.Drawing.Point(3, 97);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(110, 13);
             this.label3.TabIndex = 5;
@@ -127,7 +125,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(230, 121);
+            this.label4.Location = new System.Drawing.Point(227, 97);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 13);
             this.label4.TabIndex = 6;
@@ -135,7 +133,7 @@
             // 
             // mskTiempo
             // 
-            this.mskTiempo.Location = new System.Drawing.Point(286, 118);
+            this.mskTiempo.Location = new System.Drawing.Point(283, 94);
             this.mskTiempo.Mask = "00:00";
             this.mskTiempo.Name = "mskTiempo";
             this.mskTiempo.Size = new System.Drawing.Size(34, 20);
@@ -148,7 +146,6 @@
             this.dt_fechaTurno.Name = "dt_fechaTurno";
             this.dt_fechaTurno.Size = new System.Drawing.Size(200, 20);
             this.dt_fechaTurno.TabIndex = 7;
-            this.dt_fechaTurno.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label5
             // 
@@ -159,24 +156,14 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Fecha Turno";
             // 
-            // lb_tipoDia
+            // lbHorasExtras
             // 
-            this.lb_tipoDia.AutoSize = true;
-            this.lb_tipoDia.Location = new System.Drawing.Point(391, 49);
-            this.lb_tipoDia.Name = "lb_tipoDia";
-            this.lb_tipoDia.Size = new System.Drawing.Size(64, 13);
-            this.lb_tipoDia.TabIndex = 9;
-            this.lb_tipoDia.Text = "Tipo de Día";
-            this.lb_tipoDia.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 212);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(118, 13);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Horas Extras del Turno:";
+            this.lbHorasExtras.AutoSize = true;
+            this.lbHorasExtras.Location = new System.Drawing.Point(46, 345);
+            this.lbHorasExtras.Name = "lbHorasExtras";
+            this.lbHorasExtras.Size = new System.Drawing.Size(118, 13);
+            this.lbHorasExtras.TabIndex = 10;
+            this.lbHorasExtras.Text = "Horas Extras del Turno:";
             // 
             // radioButton1
             // 
@@ -221,30 +208,21 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(346, 121);
+            this.label8.Location = new System.Drawing.Point(3, 66);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(126, 13);
             this.label8.TabIndex = 14;
             this.label8.Text = "Cantidad horas del Turno";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
-            // 
-            // mskTurno
-            // 
-            this.mskTurno.Location = new System.Drawing.Point(478, 118);
-            this.mskTurno.Mask = "00:00";
-            this.mskTurno.Name = "mskTurno";
-            this.mskTurno.Size = new System.Drawing.Size(34, 20);
-            this.mskTurno.TabIndex = 4;
-            this.mskTurno.ValidatingType = typeof(System.DateTime);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(9, 169);
+            this.button1.Location = new System.Drawing.Point(228, 286);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 15;
             this.button1.Text = "Analizar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -256,62 +234,68 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label9
+            // lbCantRestricciones
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(233, 211);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(131, 13);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "Cantidad de Restricciones";
+            this.lbCantRestricciones.AutoSize = true;
+            this.lbCantRestricciones.Location = new System.Drawing.Point(234, 345);
+            this.lbCantRestricciones.Name = "lbCantRestricciones";
+            this.lbCantRestricciones.Size = new System.Drawing.Size(131, 13);
+            this.lbCantRestricciones.TabIndex = 17;
+            this.lbCantRestricciones.Text = "Cantidad de Restricciones";
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.codTurno);
+            this.panel1.Controls.Add(this.cb_horasTurno);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.mskEntrada);
             this.panel1.Controls.Add(this.mskSalida);
             this.panel1.Controls.Add(this.mskTiempo);
-            this.panel1.Controls.Add(this.mskTurno);
-            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Enabled = false;
-            this.panel1.Location = new System.Drawing.Point(26, 112);
+            this.panel1.Location = new System.Drawing.Point(121, 126);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(554, 258);
+            this.panel1.Size = new System.Drawing.Size(347, 141);
             this.panel1.TabIndex = 18;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // codTurno
+            // cb_horasTurno
             // 
-            this.codTurno.AutoSize = true;
-            this.codTurno.Location = new System.Drawing.Point(335, 14);
-            this.codTurno.Name = "codTurno";
-            this.codTurno.Size = new System.Drawing.Size(16, 13);
-            this.codTurno.TabIndex = 18;
-            this.codTurno.Text = "   ";
-            this.codTurno.Click += new System.EventHandler(this.codTurno_Click);
+            this.cb_horasTurno.FormattingEnabled = true;
+            this.cb_horasTurno.Items.AddRange(new object[] {
+            "8"});
+            this.cb_horasTurno.Location = new System.Drawing.Point(136, 61);
+            this.cb_horasTurno.Name = "cb_horasTurno";
+            this.cb_horasTurno.Size = new System.Drawing.Size(72, 21);
+            this.cb_horasTurno.TabIndex = 19;
+            // 
+            // lb_detallesRestricciones
+            // 
+            this.lb_detallesRestricciones.AutoSize = true;
+            this.lb_detallesRestricciones.Location = new System.Drawing.Point(237, 378);
+            this.lb_detallesRestricciones.Name = "lb_detallesRestricciones";
+            this.lb_detallesRestricciones.Size = new System.Drawing.Size(0, 13);
+            this.lb_detallesRestricciones.TabIndex = 19;
             // 
             // PruebaIngreso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(619, 382);
+            this.ClientSize = new System.Drawing.Size(619, 445);
+            this.Controls.Add(this.lb_detallesRestricciones);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.cbJustificacion);
+            this.Controls.Add(this.lbCantRestricciones);
+            this.Controls.Add(this.lbCodTurno);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.lb_tipoDia);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dt_fechaTurno);
+            this.Controls.Add(this.lbHorasExtras);
             this.Name = "PruebaIngreso";
             this.Text = "PruebaIngreso";
             this.panel1.ResumeLayout(false);
@@ -326,7 +310,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbCodTurno;
         private System.Windows.Forms.MaskedTextBox mskEntrada;
         private System.Windows.Forms.MaskedTextBox mskSalida;
         private System.Windows.Forms.Label label3;
@@ -334,17 +318,16 @@
         private System.Windows.Forms.MaskedTextBox mskTiempo;
         private System.Windows.Forms.DateTimePicker dt_fechaTurno;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lb_tipoDia;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbHorasExtras;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.ComboBox cbJustificacion;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.MaskedTextBox mskTurno;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lbCantRestricciones;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label codTurno;
+        private System.Windows.Forms.ComboBox cb_horasTurno;
+        private System.Windows.Forms.Label lb_detallesRestricciones;
     }
 }
