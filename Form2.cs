@@ -107,11 +107,14 @@ namespace SegMayor
 
         private void bt_guardar_Click(object sender, EventArgs e)
         {
-            TimeSpan horaEntrada, horaSalida, horaColacion;
+           /*
+            SOBRA? TimeSpan horaEntrada, horaSalida, horaColacion;
             int horasColacion, rol;
+
             String horadeEntrada = mtb_hentrada.Text;
             String horadeSalida = mtb_hsalida.Text;
             String horadeColacion = mtb_colacion.Text;
+            */
            /* horaEntrada = DateTime.Parse(horadeEntrada, System.Globalization.CultureInfo.CurrentCulture);
 
             horaSalida = DateTime.Parse(horadeSalida, System.Globalization.CultureInfo.CurrentCulture);
@@ -124,9 +127,10 @@ namespace SegMayor
             int vt2;
             double v2;
 
-           String HEntrada = (mtb_hentrada.Text.ToString());
+            String HEntrada = (mtb_hentrada.Text.ToString());
             String HSalida = (mtb_hsalida.Text.ToString());
-            String HComida = (mtb_colacion.Text.ToString());
+            String HComida = (mtb_colacion.Text.ToString()); 
+            
            String THorasE = HEntrada.Substring(0, 2) + ":" + HEntrada.Substring(3, 2);
             String THoraS = HSalida.Substring(0, 2) + ":" + HSalida.Substring(3, 2);
             String THorasC = HComida.Substring(0, 2) + ":" + HComida.Substring(3, 2);

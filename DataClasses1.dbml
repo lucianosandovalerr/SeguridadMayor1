@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SeguridadMayor" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=SeguridadMayor;Integrated Security=True" SettingsObjectName="SegMayor.Properties.Settings" SettingsPropertyName="segMayorConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Asistencia" Member="Asistencia">
+    <Type Name="Asistencia">
+      <Column Name="ID_asistencia" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Rol" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HoraEntrada" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="HorasColacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HoraSalida" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="Turno" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Asistencia_Horas" Member="Horas" ThisKey="ID_asistencia" OtherKey="ID_asistencia" Type="Horas" />
+      <Association Name="Asistencia_Pagos" Member="Pagos" ThisKey="ID_asistencia" OtherKey="ID_asistencia" Type="Pagos" />
+      <Association Name="Trabajador_Asistencia" Member="Trabajador" ThisKey="Rol" OtherKey="Rol" Type="Trabajador" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Trabajador" Member="Trabajador">
+    <Type Name="Trabajador">
+      <Column Name="Rol" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Rut" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Nombres" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Apellidos" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Zona" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Trabajador_Asistencia" Member="Asistencia" ThisKey="Rol" OtherKey="Rol" Type="Asistencia" />
+      <Association Name="Trabajador_Horas" Member="Horas" ThisKey="Rol" OtherKey="Rol" Type="Horas" />
+      <Association Name="Trabajador_Pagos" Member="Pagos" ThisKey="Rol" OtherKey="Rol" Type="Pagos" />
+    </Type>
+  </Table>
+  <Table Name="dbo.diasFeriados" Member="diasFeriados">
+    <Type Name="diasFeriados">
+      <Column Name="dia" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Horas" Member="Horas">
+    <Type Name="Horas">
+      <Column Name="ID_horas" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Rol" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="ID_asistencia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="cantHoras" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Horas_Pagos" Member="Pagos" ThisKey="ID_horas" OtherKey="ID_horas" Type="Pagos" />
+      <Association Name="Asistencia_Horas" Member="Asistencia" ThisKey="ID_asistencia" OtherKey="ID_asistencia" Type="Asistencia" IsForeignKey="true" />
+      <Association Name="Trabajador_Horas" Member="Trabajador" ThisKey="Rol" OtherKey="Rol" Type="Trabajador" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Pagos" Member="Pagos">
+    <Type Name="Pagos">
+      <Column Name="ID_Pagos" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="cantHoras_Total" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PagoEfec" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="cant_PagoEfect" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="semana" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Rol" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="ID_horas" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_asistencia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Asistencia_Pagos" Member="Asistencia" ThisKey="ID_asistencia" OtherKey="ID_asistencia" Type="Asistencia" IsForeignKey="true" />
+      <Association Name="Horas_Pagos" Member="Horas" ThisKey="ID_horas" OtherKey="ID_horas" Type="Horas" IsForeignKey="true" />
+      <Association Name="Trabajador_Pagos" Member="Trabajador" ThisKey="Rol" OtherKey="Rol" Type="Trabajador" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

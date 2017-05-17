@@ -12,6 +12,9 @@ namespace SegMayor
 {
     public partial class PruebaIngreso : Form
     {
+
+        analisis excepcion = new analisis();
+
         public PruebaIngreso()
         {
             InitializeComponent();
@@ -21,14 +24,12 @@ namespace SegMayor
         {
             formFeriados ingresar = new formFeriados();
             ingresar.Show();
-
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             panel1.Enabled = true;
             cbJustificacion.Enabled = false;
-
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
@@ -41,7 +42,6 @@ namespace SegMayor
         {
             if (checkBox1.Checked)
             {
-
                 cbJustificacion.Enabled = false;
             } else
             {
@@ -50,74 +50,79 @@ namespace SegMayor
                     cbJustificacion.Enabled = true;
                 }
             }
-            verificarTurno();
         }
 
-        private void label8_Click(object sender, EventArgs e)
-        {
+       
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            analisisDatos();
         }
+        
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void analisisDatos()
         {
-            verificarTurno();
-        }
+            Boolean descanso = false, feriado = false, domingo = false;
+            //analizar tipo de Turno y devuelve codigo, ej 4y1
+            String codigoTurno = excepcion.verificarTurno(comboBox1.SelectedIndex, checkBox1.Checked);
+            descanso = checkBox1.Checked; //T o F
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
+            //analizar si dia de turno es feriado
+            feriado = excepcion.analizarFeriado(dt_fechaTurno.Value);
 
-        }
+            //analizar si dia de turno es domingo
+            domingo = excepcion.esDomingo(dt_fechaTurno.Value); //T o F
 
-        private void codTurno_Click(object sender, EventArgs e)
-        {
+            //contador de excepciones encontradas
+            int count = 0;
+            if (descanso) count++;
+            if (feriado) count++;
+            if (domingo) count++;
 
-        }
+            //obtener horas del turno
+            String THorasE = mskEntrada.Text.Substring(0, 2) + ":" + mskEntrada.Text.Substring(3, 2);
+            String THoraS = mskSalida.Text.Substring(0, 2) + ":" + mskSalida.Text.Substring(3, 2);
+            String THorasC = mskTiempo.Text.Substring(0, 2) + ":" + mskTiempo.Text.Substring(3, 2);            
+            TimeSpan result = excepcion.duracionTurno(THorasE, THoraS, THorasC);
 
-        private void verificarTurno()
-        {
-            int seleccionado = comboBox1.SelectedIndex;
-
-            switch (seleccionado)
+            //obtener diferencias con horas que corresponden al turno
+            //si es descanso o feriado no hay diferencia, son todas HE
+            TimeSpan horasExtras = TimeSpan.Parse("00:00"), horasTurno = TimeSpan.Parse("00:00");
+            if (!descanso)
             {
-
-                case 1:
-                    if (checkBox1.Checked)
+                if (!feriado)
+                {
+                    if (cb_horasTurno.SelectedItem.ToString() == "8")
                     {
-                        codTurno.Text = "4y1";
+                        horasTurno = TimeSpan.Parse("08:00");
                     }
-                    else
-                    {
-                        codTurno.Text = "1";
-                    }
-                    break;
-                case 2:
-                    if (checkBox1.Checked)
-                    {
-                        codTurno.Text = "4y2";
-                    }
-                    else
-                    {
-                        codTurno.Text = "2";
-                    }
-                    break;
-                case 3:
-                    if (checkBox1.Checked)
-                    {
-                        codTurno.Text = "4y3";
-                    }
-                    else
-                    {
-                        codTurno.Text = "3";
-                    }
-                    break;
-                case 0:
-                    if (checkBox1.Checked)
-                    {
-                        codTurno.Text = "4";
-                    }
-                    break;
-
+                    horasExtras = result - horasTurno;
+                }
+                else
+                {
+                    horasExtras = result ;
+                }
             }
+            else
+            {
+                horasExtras = result;
+            }
+
+            //representar datos
+            lbHorasExtras.Text = ("Horas Extras del Turno: "+horasExtras.ToString());
+            lbCantRestricciones.Text = ("Cantidad de Restricciones: " + count);
+            lbCodTurno.Text = ("Código del Turno: "+codigoTurno);
+
+            String detalle = "Detalle de las Restricciones: \n";
+            if (descanso) detalle = detalle + "Día de Descanso \n";
+            if (feriado) detalle = detalle + "Día Feriado \n";
+            if (domingo) detalle = detalle + "Día Festivo \n";
+
+            lb_detallesRestricciones.Text = (detalle);
+
         }
+            
+
+
     }
 }
